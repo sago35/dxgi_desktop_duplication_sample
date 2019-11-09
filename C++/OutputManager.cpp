@@ -265,6 +265,9 @@ DUPL_RETURN OUTPUTMANAGER::CreateSharedSurf(INT SingleOutput, _Out_ UINT* OutCou
             hr = DxgiAdapter->EnumOutputs(OutputCount, &DxgiOutput);
             if (DxgiOutput && (hr != DXGI_ERROR_NOT_FOUND))
             {
+                if (OutputCount > 0) {
+                    continue;
+                }
                 DXGI_OUTPUT_DESC DesktopDesc;
                 DxgiOutput->GetDesc(&DesktopDesc);
 
